@@ -1,12 +1,26 @@
 
+x <- c(2, 3, 20, 40, 20, 2, 1)
 cal_mean <- function(x) {
-  sum(x) / length(x)
+  sum_x <- sum(x)
+  n <- length(x )
+  my_mean <- sum_x/n 
+  return(my_mean)
 }
+cal_mean(x)
 
 cal_sd <- function(x) {
-  data_mean <- cal_mean(x)
-  sum_of_square <- sum((x - data_mean) ^ 2)
-  (sum_of_square / data_mean) ^ 0.5
+  my_mean <- cal_mean(x)
+  n <- length(x)
+  my_sd <- sqrt(sum((x - my_mean)^2) / (n-1))
+  return(my_sd)
 }
+cal_sd(x)
+eza
 
-cal_sd(c(1,2,3,4,5,6))
+cal_cv <- function(x) {
+  my_mean <- cal_mean (x)
+  my_sd <- cal_sd(x)
+  my_cv <- my_sd / my_mean
+  return(my_cv)
+}
+cal_cv(x)
